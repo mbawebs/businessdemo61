@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>High Royal Cuts | Demo Visual</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Pirata+One&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:#070707;
+color:#fff;
+overflow-x:hidden;
+}
+
+.demo-crown{
+background:linear-gradient(90deg,#d59b22,#ffe08a,#d59b22);
+color:#111;
+padding:13px 18px;
+text-align:center;
+font-weight:900;
+letter-spacing:.7px;
+text-transform:uppercase;
+font-size:.85rem;
+}
+
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+background:
+radial-gradient(circle at 70% 25%,rgba(213,155,34,.22),transparent 28%),
+linear-gradient(135deg,#040404 0%,#101010 55%,#000 100%);
+position:relative;
+overflow:hidden;
+}
+
+.hero::after{
+content:"ROYAL";
+position:absolute;
+right:-80px;
+bottom:-70px;
+font-family:'Cinzel',serif;
+font-size:13rem;
+font-weight:900;
+color:rgba(255,255,255,.035);
+letter-spacing:8px;
+}
+
+.hero-left{
+padding:95px 7%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+position:relative;
+z-index:2;
+}
+
+.seal{
+width:170px;
+height:170px;
+border-radius:50%;
+border:4px solid #d59b22;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+margin-bottom:28px;
+box-shadow:0 0 55px rgba(213,155,34,.28);
+background:#050505;
+}
+
+.seal span{
+font-family:'Pirata One',cursive;
+font-size:3rem;
+line-height:.9;
+color:#e8c46a;
+}
+
+.kicker{
+color:#d59b22;
+font-weight:900;
+letter-spacing:2px;
+text-transform:uppercase;
+font-size:.85rem;
+margin-bottom:18px;
+}
+
+h1{
+font-family:'Cinzel',serif;
+font-size:5rem;
+line-height:.95;
+text-transform:uppercase;
+margin-bottom:25px;
+}
+
+h1 span{
+color:#d59b22;
+}
+
+.hero-left p{
+max-width:700px;
+line-height:1.9;
+color:#d8d8d8;
+font-size:1.08rem;
+margin-bottom:35px;
+}
+
+.buttons{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-block;
+padding:16px 30px;
+border-radius:7px;
+text-decoration:none;
+font-weight:900;
+text-transform:uppercase;
+transition:.25s;
+}
+
+.btn-gold{
+background:#d59b22;
+color:#111;
+}
+
+.btn-outline{
+border:1px solid rgba(255,255,255,.28);
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.hero-right{
+padding:70px 7%;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+z-index:2;
+}
+
+.royal-card{
+width:100%;
+max-width:520px;
+height:650px;
+background:
+linear-gradient(to top,rgba(0,0,0,.85),rgba(0,0,0,.15)),
+url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=1300&auto=format&fit=crop') center/cover;
+border-radius:35px;
+border:1px solid rgba(213,155,34,.35);
+box-shadow:0 35px 90px rgba(0,0,0,.5);
+position:relative;
+overflow:hidden;
+}
+
+.royal-info{
+position:absolute;
+left:28px;
+right:28px;
+bottom:28px;
+background:rgba(0,0,0,.78);
+backdrop-filter:blur(14px);
+border:1px solid rgba(213,155,34,.38);
+padding:28px;
+border-radius:22px;
+}
+
+.royal-info h3{
+font-family:'Cinzel',serif;
+font-size:1.8rem;
+color:#d59b22;
+margin-bottom:12px;
+}
+
+.royal-info p{
+line-height:1.75;
+color:#ddd;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+background:#111;
+border-top:1px solid rgba(213,155,34,.25);
+border-bottom:1px solid rgba(213,155,34,.25);
+}
+
+.stat{
+padding:35px 25px;
+text-align:center;
+border-right:1px solid rgba(255,255,255,.08);
+}
+
+.stat:last-child{
+border-right:none;
+}
+
+.stat strong{
+display:block;
+font-family:'Cinzel',serif;
+font-size:2rem;
+color:#d59b22;
+margin-bottom:8px;
+}
+
+.stat span{
+font-size:.85rem;
+font-weight:800;
+text-transform:uppercase;
+color:#aaa;
+}
+
+.section{
+padding:100px 7%;
+}
+
+.section-head{
+text-align:center;
+max-width:900px;
+margin:0 auto 60px;
+}
+
+.section-head h2{
+font-family:'Cinzel',serif;
+font-size:3.5rem;
+line-height:1;
+text-transform:uppercase;
+margin-bottom:20px;
+}
+
+.section-head p{
+color:#bbb;
+line-height:1.85;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.service{
+background:#151515;
+border:1px solid rgba(213,155,34,.18);
+padding:32px;
+border-radius:24px;
+min-height:300px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+transition:.25s;
+}
+
+.service:hover{
+transform:translateY(-8px);
+border-color:#d59b22;
+}
+
+.service-icon{
+font-size:2rem;
+color:#d59b22;
+}
+
+.service h3{
+font-family:'Cinzel',serif;
+font-size:1.3rem;
+margin:22px 0 12px;
+color:#e8c46a;
+}
+
+.service p{
+color:#cfcfcf;
+line-height:1.75;
+}
+
+.vip{
+display:grid;
+grid-template-columns:1fr 1fr;
+background:#d59b22;
+color:#111;
+}
+
+.vip-img{
+min-height:630px;
+background:
+linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.45)),
+url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=1300&auto=format&fit=crop') center/cover;
+}
+
+.vip-text{
+padding:90px 7%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.vip-text h2{
+font-family:'Cinzel',serif;
+font-size:3.7rem;
+line-height:1;
+text-transform:uppercase;
+margin-bottom:25px;
+}
+
+.vip-text p{
+line-height:1.9;
+font-weight:600;
+margin-bottom:25px;
+}
+
+.vip-list{
+display:grid;
+gap:13px;
+}
+
+.vip-list div{
+background:rgba(0,0,0,.12);
+padding:18px;
+border-left:6px solid #111;
+font-weight:900;
+}
+
+.location{
+padding:100px 7%;
+background:#070707;
+}
+
+.location-box{
+display:grid;
+grid-template-columns:.9fr 1.1fr;
+background:#121212;
+border:1px solid rgba(213,155,34,.25);
+border-radius:30px;
+overflow:hidden;
+}
+
+.location-info{
+padding:55px;
+}
+
+.location-info h2{
+font-family:'Cinzel',serif;
+font-size:3rem;
+text-transform:uppercase;
+margin-bottom:28px;
+color:#d59b22;
+}
+
+.line{
+padding:19px 0;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.line strong{
+display:block;
+color:#d59b22;
+font-size:.8rem;
+text-transform:uppercase;
+letter-spacing:1px;
+margin-bottom:8px;
+}
+
+.line span{
+color:#ddd;
+line-height:1.7;
+}
+
+.map{
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:50px;
+background:
+radial-gradient(circle at center,rgba(213,155,34,.3),transparent 30%),
+linear-gradient(135deg,#1a1a1a,#050505);
+}
+
+.map h3{
+font-family:'Cinzel',serif;
+font-size:4.5rem;
+text-transform:uppercase;
+color:#d59b22;
+}
+
+.demo{
+background:#fff;
+color:#111;
+padding:90px 7%;
+text-align:center;
+}
+
+.demo h2{
+font-family:'Cinzel',serif;
+font-size:3rem;
+text-transform:uppercase;
+margin-bottom:20px;
+}
+
+.demo p{
+max-width:930px;
+margin:auto;
+line-height:2;
+color:#444;
+}
+
+.final{
+padding:110px 7%;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.88)),
+url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=1600&auto=format&fit=crop') center/cover;
+}
+
+.final h2{
+font-family:'Cinzel',serif;
+font-size:3.7rem;
+text-transform:uppercase;
+margin-bottom:22px;
+}
+
+.final p{
+max-width:800px;
+margin:0 auto 32px;
+line-height:1.85;
+color:#ddd;
+}
+
+footer{
+background:#000;
+color:#777;
+text-align:center;
+padding:35px 18px;
+font-size:.85rem;
+}
+
+@media(max-width:1000px){
+.hero,
+.vip,
+.location-box{
+grid-template-columns:1fr;
+}
+
+h1{
+font-size:3.5rem;
+}
+
+.stats{
+grid-template-columns:1fr 1fr;
+}
+
+.services{
+grid-template-columns:1fr 1fr;
+}
+
+.royal-card{
+height:520px;
+}
+}
+
+@media(max-width:620px){
+.hero-left,
+.hero-right,
+.section,
+.vip-text,
+.location,
+.demo,
+.final{
+padding:70px 25px;
+}
+
+h1{
+font-size:2.7rem;
+}
+
+.section-head h2,
+.vip-text h2,
+.location-info h2,
+.demo h2,
+.final h2{
+font-size:2.4rem;
+}
+
+.services,
+.stats{
+grid-template-columns:1fr;
+}
+
+.location-info{
+padding:35px 25px;
+}
+
+.map h3{
+font-size:2.8rem;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="demo-crown">
+Demo visual no oficial · Propuesta conceptual para High Royal Cuts
+</div>
+
+<section class="hero">
+
+<div class="hero-left">
+
+<div class="seal">
+<span>High<br>Royal<br>Cuts</span>
+</div>
+
+<div class="kicker">Barber Studio MX · Tradición & Estilo VIP</div>
+
+<h1>High <span>Royal Cuts</span></h1>
+
+<p>
+Una barbería con esencia urbana, estilo clásico y atención VIP. Esta demo muestra cómo High Royal Cuts podría presentarse con una landing page elegante, oscura y premium.
+</p>
+
+<div class="buttons">
+<a href="#" class="btn btn-gold">Reservar cita</a>
+<a href="#" class="btn btn-outline">Ver servicios</a>
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="royal-card">
+<div class="royal-info">
+<h3>Clásico con esencia urbana</h3>
+<p>
+Cortes, barba, relax, estilos clásicos y servicio VIP en una experiencia digital más profesional.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="stat">
+<strong>7,057</strong>
+<span>Seguidores</span>
+</div>
+
+<div class="stat">
+<strong>83</strong>
+<span>Publicaciones</span>
+</div>
+
+<div class="stat">
+<strong>219</strong>
+<span>Facebook</span>
+</div>
+
+<div class="stat">
+<strong>VIP</strong>
+<span>Experiencia</span>
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Servicios con estilo royal</h2>
+<p>
+Una página profesional puede mostrar de forma clara los servicios más buscados, reforzar la imagen premium y facilitar la reservación desde redes sociales o Google.
+</p>
+</div>
+
+<div class="services">
+
+<div class="service">
+<div class="service-icon">♛</div>
+<div>
+<h3>Corte VIP</h3>
+<p>Cortes con detalle, presentación y estilo personalizado para cada cliente.</p>
+</div>
+</div>
+
+<div class="service">
+<div class="service-icon">🪒</div>
+<div>
+<h3>Barba</h3>
+<p>Perfilado, limpieza y cuidado de barba con acabado profesional.</p>
+</div>
+</div>
+
+<div class="service">
+<div class="service-icon">✦</div>
+<div>
+<h3>Relax</h3>
+<p>Un servicio pensado para que el cliente disfrute una experiencia completa.</p>
+</div>
+</div>
+
+<div class="service">
+<div class="service-icon">👑</div>
+<div>
+<h3>Classic Style</h3>
+<p>Estética clásica con toque urbano, elegante y moderno.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="vip">
+
+<div class="vip-img"></div>
+
+<div class="vip-text">
+
+<h2>Una marca que ya se siente premium</h2>
+
+<p>
+High Royal Cuts tiene una identidad visual fuerte: dorado, negro, estilo elegante y enfoque VIP. Una landing page puede aprovechar esa imagen para vender mejor sus servicios.
+</p>
+
+<div class="vip-list">
+<div>Agenda en línea o WhatsApp directo</div>
+<div>Galería de cortes y videos</div>
+<div>Servicios VIP y paquetes premium</div>
+<div>Ubicación y contacto visibles</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="location">
+
+<div class="location-box">
+
+<div class="location-info">
+
+<h2>Información</h2>
+
+<div class="line">
+<strong>Ubicación</strong>
+<span>Plaza Nuevo Sur, Planta alta, Monterrey, Nuevo León.</span>
+</div>
+
+<div class="line">
+<strong>Zona</strong>
+<span>Colonia Ladrillera, 64830.</span>
+</div>
+
+<div class="line">
+<strong>Teléfono</strong>
+<span>81 1786 1730</span>
+</div>
+
+<div class="line">
+<strong>Correo</strong>
+<span>barberstudio@highroyalcuts.com</span>
+</div>
+
+</div>
+
+<div class="map">
+<h3>Nuevo Sur</h3>
+</div>
+
+</div>
+
+</section>
+
+<section class="demo">
+
+<h2>Esta página es una demo</h2>
+
+<p>
+Esta NO es la página oficial de High Royal Cuts. Es una demostración visual creada únicamente para enseñar cómo podría verse una landing page profesional para este negocio.
+<br><br>
+Todo puede personalizarse con fotos reales, precios, horarios, servicios, agenda en línea, WhatsApp, Instagram, Facebook, Google Maps y contenido propio de la marca.
+</p>
+
+</section>
+
+<section class="final">
+
+<h2>¿Te imaginas la versión completa?</h2>
+
+<p>
+Una landing page profesional puede ayudar a que la barbería se vea más confiable, más premium y más fácil de reservar desde redes sociales o Google Maps.
+</p>
+
+<a href="#" class="btn btn-gold">Landing page desde $300 USD</a>
+
+</section>
+
+<footer>
+Demo visual no oficial · Diseño conceptual para presentación comercial · No copiar, publicar ni reutilizar sin autorización.
+</footer>
+
+</body>
+</html>
